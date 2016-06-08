@@ -3,6 +3,7 @@
 int main (void) {
 	int a = 0,b = 0,c = 0,t = 0, i = 0,result = 0;
 	scanf("%d %d %d",&a,&b,&c);
+
 	while(c > 0){
 		t = c/a;
 		i = c/b;

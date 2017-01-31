@@ -30,7 +30,7 @@ for x in range (0, countX+1):
 
 moved.append(movelist[1])
 
-#forth movement
+#fourth movement
 moved.append(movelist[3])
 
 for y in range (0,countY+1):

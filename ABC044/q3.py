@@ -1,5 +1,4 @@
 # -*- coding:utf-8 -*-
-import math
 N, A = map(int,input().split())
 x = [0] + list(map(int,input().split()))
 ans = 0
@@ -7,8 +6,6 @@ if max(x) < A:
     maximum = A
 else:
     maximum = max(x)
-#sum/n = A ---> sum = nA
-#calc[a][b][c] a番目のカードまで選んでからb枚を抜き出した時、合計がcになる通り。
 calc = [[[0 for c in range(N*maximum+1)] for b in range(N+1)] for a in range(N+1)]
 for a in range(N+1):
     for b in range(N+1):

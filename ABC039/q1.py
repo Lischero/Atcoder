@@ -1,4 +1,4 @@
 # -*- coding:utf-8 -*-
-factor = list(map(int, input().split()))
-answer = 2 * (factor[0] * factor[1] + factor[0] * factor[2] + factor[1] * factor[2])
+A,B,C = map(int, input().split())
+answer = 2 * (A * B + A * C + B * C)
 print(answer)

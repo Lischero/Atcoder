@@ -1,11 +1,7 @@
 # -*- coding:utf-8 -*-
 import re
-S = input()
-scale = ["Do", "#", "Re", "#", "Mi", "Fa", "#", "So", "La", "#", "Si", "#"]
-flag = re.finditer(r"WW",S)
-for tmp in flag:
-    index = tmp.start()
-    if index >= 4:
-        break
+s = input()
+l = "WBWBWWBWBWBW" * 3
+scale = { 0:"Do", 2:"Re", 4:"Mi", 5:"Fa", 7:"So", 9:"La", 11:"Si" }
+print(scale[l.index(s)])
 
-print(scale[4-index])

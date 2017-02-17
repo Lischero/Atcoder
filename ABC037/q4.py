@@ -11,17 +11,19 @@ def check(y,x):
     if x - 1 >= 0 and a[y][x] < a[y][x-1]:
         sample += check(y,x-1)
     if x + 1 < W and a[y][x] < a[y][x+1]:
-        sample + check(y,x+1)
-    surplus[y][x] = sample % 10**9+7
+        sample += check(y,x+1)
+    surplus[y][x] = sample%((10**9)+7)
     return surplus[y][x]
 
 H,W = map(int, input().split())
-a = [list(map, input().split()) for tmp in range(H)]
-surplus = [[0 for tmp in range(W)] for tmp2 in range(H)]
+a = [list(map(int, input().split())) for tmp in range(H)]
+surplus = [[0 for tmp in range(W)] for tmp in range(H)]
 ans = 0
-for y in range(W):
-    for x in range(H):
-         check(y,x)
-
-
+for y in range(H):
+    for x in range(W):
+        check(y,x)
+for y in range(H):
+    for x in range(W):
+        ans += surplus[y][x]
+        ans %= (10**9)+7
 print(ans)

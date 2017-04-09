@@ -9,6 +9,7 @@ def tribonacci(num):
         l.append(tmp%((10**4)+7))
         return tmp
 '''
+
 l = [0,0,1]
 n = int(input())
 for tmp in range(3,n):

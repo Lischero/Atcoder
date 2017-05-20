@@ -13,7 +13,6 @@ S = list(input())
 a = sorted(S)
 b = sorted(S)
 T = []
-
 for tmp in range(N):
     i = []
     for tmp2 in range(len(a)):

@@ -13,10 +13,6 @@ for tmp in range(N):
     else:
         pass
 juwels = list(itertools.accumulate(juwels, operator.add))
-'''
-for tmp in range(len(juwels)-1):
-    juwels[tmp+1] += juwels[tmp]
-'''
 if 0 in juwels:
     print(ans)
     sys.exit()

@@ -1,5 +1,4 @@
 #include <stdio.h>
-
 int main(void){
 	char s[14] = {'\0'};
 	scanf("%s",s);

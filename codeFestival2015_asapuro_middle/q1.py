@@ -5,6 +5,7 @@ a.sort()
 a.reverse()
 factors = a[0:k]
 average = sum(factors)/k
+
 if average >= r:
     print(0)
 else:

@@ -13,6 +13,7 @@ if ($b-$a >= 2*$k){
         array_push($factors, $tmp);
     }
 }
+
 sort($factors);
 for ($tmp = 0; $tmp < count($factors); $tmp++){
     print("{$factors[$tmp]}\n");

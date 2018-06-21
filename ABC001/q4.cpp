@@ -1,38 +1,54 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <sstream>
 using namespace std;
 
 int main (){
     int n;
     vector<int> times(60/5*24+2, 0);
     vector<string> factors;
+
     cin >> n;
-    for (int tmp = 0; tmp < n; tmp++){
-        string a;
-        while (getline(cin, a, '-')){
-        cout << a  << endl;
-            factors.push_back(a);
+    for(int tmp = 0; tmp < n; tmp++){
+        string text, buf;
+        cin >> text;
+        stringstream ss(text);
+        while(getline(ss, buf, '-')){
+            factors.push_back(buf);
         }
     }
+
     for (int tmp = 0; tmp < factors.size(); tmp++){
             int hour = atoi(factors[tmp].substr(0,2).c_str());
-            int minute = atoi(factors[tmp].substr(3).c_str());
+            int minute = atoi(factors[tmp].substr(2).c_str());
             if (tmp%2){
                 //fin
-                minute += 5 - minute%5;
+                if (minute%5){
+                    if (minute+(5-minute%5) != 60){
+                        minute += 5-minute%5;
+                    } else {
+                        minute = 0;
+                        hour += 1;
+                    }
+                }
+                cout << "end: hour: " << hour << " minute: " << minute << endl;
+
                 times[hour*12+minute/5+1] -= 1;
+                cout << endl;
             } else {
                 //start
                 minute -= minute%5;
+                cout << "start: hour: " << hour << " minute: " << minute << endl;
                 times[hour*12+minute/5] += 1;
             }
     }
+
     for (int tmp = 1; tmp < times.size(); tmp++){
         times[tmp] += times[tmp-1];
     }
     for (int tmp = 0, start_index = -1; tmp < times.size(); tmp++){
-        if (times[tmp] != 0 && start_index == -1){
+        if (times[tmp] > 0 && start_index == -1){
             start_index = tmp;
         }
         if (times[tmp] == 0 && start_index != -1){

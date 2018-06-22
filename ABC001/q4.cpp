@@ -32,14 +32,10 @@ int main (){
                         hour += 1;
                     }
                 }
-                cout << "end: hour: " << hour << " minute: " << minute << endl;
-
                 times[hour*12+minute/5+1] -= 1;
-                cout << endl;
             } else {
                 //start
                 minute -= minute%5;
-                cout << "start: hour: " << hour << " minute: " << minute << endl;
                 times[hour*12+minute/5] += 1;
             }
     }
@@ -51,7 +47,7 @@ int main (){
         if (times[tmp] > 0 && start_index == -1){
             start_index = tmp;
         }
-        if (times[tmp] == 0 && start_index != -1){
+        if ((times[tmp] == 0 || (tmp > 0 && times[tmp-1]-times[tmp] >= 2))  && start_index != -1){
             string start_time, end_time;
             int m_start_index = start_index%12;
             int h_start_index = (start_index-m_start_index)/12;
@@ -88,7 +84,11 @@ int main (){
                 }
             }
             cout << start_time << '-' << end_time << endl;
-            start_index = -1;
+            if (tmp > 0 && times[tmp-1]-times[tmp] >= 2 && times[tmp] > 0){
+                start_index = tmp;
+            } else {
+                start_index = -1;
+            }
         }
     }
     return 0;

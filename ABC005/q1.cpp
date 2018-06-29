@@ -8,5 +8,6 @@ int main() {
     double x, y;
     cin >> x >> y;
     cout << floor(y/x) << endl;
+
     return 0;
 }
